@@ -1,19 +1,13 @@
 class RecipesController < ApplicationController
-  
+  before_action :authorize
   def index
-    byebug
-   recipes = Recipe.all
-   render json: recipes
+   render json: Recipe.all
  end
 
  
    def create
       recipe = @current_user.recipes.create!(recipe_params)
-      if recipe.valid?
-          render json: recipe, status: :created
-      else
-          render json: {error: "Not authorized"}, status: :unauthorized
-      end
+      render json: recipe, status: :created
   end
 
 
