@@ -45,13 +45,13 @@ RSpec.describe "Sessions", type: :request do
         expect(session[:user_id]).to eq(nil)
       end
 
-      it "returns an array of error messages in the body" do
-        post "/login", params: { username: "nobody", password: "123" }
+      # it "returns an array of error messages in the body" do
+      #   post "/login", params: { username: "nobody", password: "123" }
 
-        expect(response.body).to include_json({
-          errors: a_kind_of(Array)
-        })
-      end
+      #   expect(response.body).to include_json({
+      #     errors: a_kind_of(Array)
+      #   })
+      # end
 
       it "returns a 401 (Unauthorized) status code" do
         post "/login", params: { username: "nobody", password: "123" }
