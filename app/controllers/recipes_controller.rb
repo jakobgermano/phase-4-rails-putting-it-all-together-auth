@@ -1,8 +1,9 @@
 class RecipesController < ApplicationController
   
   def index
+    byebug
    recipes = Recipe.all
-   render json: recipes, status: :created
+   render json: recipes
  end
 
  

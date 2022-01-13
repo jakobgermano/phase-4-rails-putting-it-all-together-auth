@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     user = User.create!(user_params)
        session[:user_id] = user.id
        render json: user, status: :created
- end
+   end
 
  def show 
   render json: @current_user
